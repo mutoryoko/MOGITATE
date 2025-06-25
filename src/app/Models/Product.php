@@ -15,4 +15,14 @@ class Product extends Model
     {
         return $this->belongsToMany(Season::class)->withTimestamps();
     }
+
+    public function scopeKeywordSearch($query, $keyword)
+    {
+        if (!empty($keyword)) {
+            $query->where(function ($q) use ($keyword) {
+                $q->where('name', 'like', '%' . $keyword . '%');
+            });
+        }
+        return $query;
+    }
 }

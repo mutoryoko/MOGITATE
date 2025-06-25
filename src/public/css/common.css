@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.header {
+    max-width: 1500px;
+}
+
+.header__logo {
+    color: #F5C800;
+}
+
+.content__nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main__container {
+    max-width: 1500px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+
+.main__content {
+    width: 1000px;
+}
+
+.search-form {
+    width: 250px;
+}

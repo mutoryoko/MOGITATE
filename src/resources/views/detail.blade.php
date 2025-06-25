@@ -13,7 +13,6 @@
     </header>
 
     <main>
-        {{-- パンくず --}}
         <p>商品一覧 > 商品名</p>
         <div class="detail__content">
             <form action="" method="post">

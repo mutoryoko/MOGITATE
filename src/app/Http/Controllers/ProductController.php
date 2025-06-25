@@ -12,7 +12,7 @@ class ProductController extends Controller
     // 一覧画面
     public function index()
     {
-        $products = Product::only('name', 'price', 'image');
+        $products = Product::all();
 
         return view('index', compact('products'));
     }
@@ -28,8 +28,10 @@ class ProductController extends Controller
     // 登録処理
     public function store(ProductFormRequest $request)
     {
-        $form = $request->all();
-        Product::create($form);
+        $validated = $request->validated();
+        $validated['image'] = $request->file('image')->store('images', 'public');
+
+        Product::create($validated);
 
         return redirect('/products');
     }
@@ -53,9 +55,18 @@ class ProductController extends Controller
     }
 
     // 商品検索
-    public function search()
+    public function search(Request $request)
     {
-        //
+        if ($request->has('reset')) {
+            return redirect('/products')->withInput();
+        }
+
+        $products = Product::with('season')
+            ->keywordSearch($request->input('keyword'))
+            ->paginate(6)
+            ->appends($request->except('page')); //ページを渡っても検索条件を引き継ぐ
+
+        return view('index', compact('products'));
     }
 
     // 商品削除処理
