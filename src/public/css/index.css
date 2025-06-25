@@ -1,3 +1,27 @@
+.content__nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main__container {
+    max-width: 1500px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+
+.main__content {
+    width: 1000px;
+}
+
+/* 検索フォーム */
+
+.search-form {
+    width: 250px;
+}
+
+/* 商品カード */
+
 .product-cards {
     display: flex;
     justify-content: space-between;

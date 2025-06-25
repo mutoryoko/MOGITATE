@@ -10,7 +10,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             ProductsTableSeeder::class,
-            SeasonsTableSeeder::class
+            SeasonsTableSeeder::class,
+            ProductsSeasonsTableSeeder::class
         ]);
     }
 }

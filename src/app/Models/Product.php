@@ -11,9 +11,11 @@ class Product extends Model
 
     protected $fillable = ['name', 'price', 'image', 'description'];
 
-    protected function products()
+    protected function seasons()
     {
-        return $this->belongsToMany(Season::class)->withTimestamps();
+        return $this->belongsToMany(Season::class)
+        ->withPivot('season_id')
+        ->withTimestamps();
     }
 
     public function scopeKeywordSearch($query, $keyword)
