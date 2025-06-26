@@ -31,7 +31,7 @@ class ProductController extends Controller
     public function store(ProductFormRequest $request)
     {
         $validated = $request->validated();
-        $validated['image'] = $request->file('image')->store('images', 'public');
+        $validated['image'] = $request->file('image')->store('fruits-img', 'public');
 
         Product::create($validated);
 
@@ -57,7 +57,7 @@ class ProductController extends Controller
         if($request->has('image')) {
             // 変更前の画像削除、新しい画像の登録
             Storage::disk('public')->delete($product->image);
-            $updateData['image'] = $request->file('image')->store('images', 'public');
+            $updateData['image'] = $request->file('image')->store('fruits-img', 'public');
         }
         $product->update($updateData);
         $product->seasons()->sync($updateData['seasons']);
