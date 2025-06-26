@@ -1,0 +1,34 @@
+.detail__content {
+    width: 800px;
+    margin: 20px auto;
+}
+
+.detail__content--upper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detail__img-wrapper {
+    width: 380px;
+}
+
+.detail__img {
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.detail__img img {
+    width: 100%;
+    height: 100%;
+}
+
+.detail__description {
+    margin: 30px 0;
+}
+
+.detail__description--text {
+    padding: 10px 15px;
+    width: 100%;
+    height: 160px;
+}
