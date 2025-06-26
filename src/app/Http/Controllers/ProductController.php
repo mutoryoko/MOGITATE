@@ -33,7 +33,13 @@ class ProductController extends Controller
         $validated = $request->validated();
         $validated['image'] = $request->file('image')->store('fruits-img', 'public');
 
-        Product::create($validated);
+        $product = Product::create([
+            'name' => $validated['name'],
+            'price' => $validated['price'],
+            'image' => $validated['image'],
+            'description' => $validated['description'],
+        ]);
+        $product->seasons()->attach($validated['seasons']);
 
         return redirect('/products');
     }
