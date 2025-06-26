@@ -12,11 +12,22 @@ use App\Models\Season;
 class ProductController extends Controller
 {
     // 一覧画面
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::all();
+        $select = $request->sort;
 
-        return view('index', compact('products'));
+        switch ($select) {
+            case 'asc':
+                $products = Product::orderBy('price', 'asc')->get();
+                break;
+            case 'desc':
+                $products = Product::orderBy('price', 'desc')->get();
+                break;
+            default:
+                $products = Product::get();
+                break;
+        }
+        return view('index', compact('products', 'select'));
     }
 
     // 登録画面

@@ -31,24 +31,25 @@
                     </div>
                 @endforeach
             </div>
+            {{-- {{ $products->appends(['sort' => request('sort')])->links() }} --}}
         </div>
         {{-- 検索フォーム --}}
         <div class="search-form">
-            <form action="{{ route('search') }}" method="get">
-                <input class="search-form__keyword" name="keyword" type="text" placeholder="商品名で検索">
+            <form action="{{ route('search') }}" method="GET">
+                <input class="search-form__keyword" name="keyword" type="text" placeholder="商品名で検索" value="{{ request('keyword') }}">
                 <button class="search-form__btn--submit" type="submit">検索</button>
             </form>
             <h3>価格順で表示</h3>
-            <form action="" method="">
-                <select name="">
-                    <option disabled selected>価格で並べ替え</option>
-                    <option value="">高い順に表示</option>
-                    <option value="">安い順に表示</option>
-                </select>
+            <details class="price-dropdown">
+                <summary>価格で並べ替え</summary>
+                <nav>
+                    <a href="?sort=asc">安い順に表示</a>
+                    <a href="?sort=desc">高い順に表示</a>
+                </nav>
+            </details>
                 {{-- @if ()
                     <button></button>
                 @endif --}}
-            </form>
         </div>
     </div>
 </div>
