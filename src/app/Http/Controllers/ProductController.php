@@ -71,17 +71,6 @@ class ProductController extends Controller
         return redirect('/products');
     }
 
-    // 商品検索
-    public function search(Request $request)
-    {
-        $products = Product::where('name')
-            ->keywordSearch($request->input('keyword'))
-            ->paginate(6)
-            ->appends($request->except('page')); //ページを渡っても検索条件を引き継ぐ
-
-        return view('index', compact('products'));
-    }
-
     // 商品削除処理
     public function destroy(Request $request, string $id)
     {

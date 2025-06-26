@@ -34,8 +34,8 @@
         </div>
         {{-- 検索フォーム --}}
         <div class="search-form">
-            <form action="" method="get">
-                <input class="search-form__keyword" name="keyword" type="text" placeholder="商品名で検索" value="{{ request('keyword') }}">
+            <form action="{{ route('search') }}" method="get">
+                <input class="search-form__keyword" name="keyword" type="text" placeholder="商品名で検索">
                 <button class="search-form__btn--submit" type="submit">検索</button>
             </form>
             <h3>価格順で表示</h3>
