@@ -10,7 +10,7 @@
 <div class="main__content">
     <div class="content__nav">
         <h2 class="subtitle">商品一覧</h2>
-        <a class="add-products__btn" href="{{ route('register') }}">商品を追加</a>
+        <a class="add-products__btn" href="{{ route('register') }}">+ 商品を追加</a>
     </div>
 
     <div class="flex__container">
@@ -39,12 +39,12 @@
                 <input class="search-form__keyword" name="keyword" type="text" placeholder="商品名で検索" value="{{ request('keyword') }}">
                 <button class="search-form__btn--submit" type="submit">検索</button>
             </form>
-            <h3>価格順で表示</h3>
+            <h3 class="sort__title">価格順で表示</h3>
             <details class="price-dropdown">
-                <summary>価格で並べ替え</summary>
-                <nav>
-                    <a href="?sort=asc">安い順に表示</a>
-                    <a href="?sort=desc">高い順に表示</a>
+                <summary class="dropdown__default">価格で並べ替え</summary>
+                <nav class="dropdown-items">
+                    <a class="asc" href="?sort=asc">安い順に表示</a>
+                    <a class="desc" href="?sort=desc">高い順に表示</a>
                 </nav>
             </details>
                 {{-- @if ()

@@ -3,10 +3,32 @@
     padding: 70px 40px;
 }
 
+/* 商品一覧タイトル、追加ボタン */
+
 .content__nav {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
+
+.subtitle {
+    font-size: 32px;
+    color: rgb(51, 51, 51);
+}
+
+.add-products__btn {
+    color: rgb(75, 75, 75);
+    background-color: rgb(255, 169, 41);
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.add-products__btn:hover {
+    background-color: rgb(223, 148, 37);
+}
+
+/* 商品カード、検索フォームのコンテナ */
 
 .flex__container {
     width: 100%;
@@ -28,12 +50,15 @@
 .product-card {
     width: 360px;
     height: 320px;
-    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
     margin-bottom: 20px;
 }
 
 .product-card__img-wrapper {
     width: 100%;
+    border-radius: 5px 5px 0 0;
     overflow: hidden;
 }
 
@@ -54,70 +79,102 @@
 /* 検索フォーム */
 
 .search-form {
-    width: 250px;
+    width: 240px;
     margin-right: 30px
 }
 
+.search-form__keyword {
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    border: 1px solid rgb(224, 223, 222);
+    padding: 14px 10px;
+    margin-bottom: 20px
+}
+
+.search-form__keyword::placeholder {
+    font-size: 14px;
+    color: rgb(224, 223, 222);
+}
+
+.search-form__btn--submit {
+    width: 100%;
+    background-color: rgb(245, 200, 0);
+    padding: 10px;
+    color: rgb(75, 75, 75);
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.search-form__btn--submit:hover {
+    background-color: rgb(221, 180, 0);
+}
+
+
 /* ソート */
+
+.sort__title {
+    font-size: 20px;
+    color: rgb(51, 51, 51);
+    margin-bottom: 20px;
+}
 
 .price-dropdown {
     position: relative;
     display: inline-block;
+    width: 100%;
 }
 
-.price-dropdown summary {
+.dropdown__default {
     list-style: none;
     cursor: pointer;
-    padding: 0.5em 1em;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 10px;
+    border: 1px solid rgb(224, 223, 222);
+    border-radius: 5px;
     background-color: white;
+    color: rgb(224, 223, 222);
+    font-size: 14px;
     position: relative;
-    padding-right: 2em;
-    /* スペース確保 */
 }
 
-/* ▼アイコン */
-.price-dropdown summary::after {
+.dropdown__default::after {
     content: "▼";
     position: absolute;
     right: 0.8em;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 0.8em;
+    font-size: 12px;
     pointer-events: none;
-    /* クリックに干渉しないように */
-    color: #555;
+    color: rgb(190, 177, 166);
 }
 
-/* 開いてるときに矢印を上向きに */
-.price-dropdown[open] summary::after {
+.price-dropdown[open] .dropdown__default::after {
     content: "▲";
 }
 
-.price-dropdown[open] summary {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-.price-dropdown nav {
+.dropdown-items {
+    width: 100%;
     position: absolute;
-    top: 100%;
+    top: 110%;
     left: 0;
     z-index: 10;
-    border: 1px solid #ccc;
-    border-top: none;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px 0 rgb(0, 0, 0, 0.25);;
     background-color: white;
-    width: 100%;
 }
 
-.price-dropdown nav a {
+.asc, .desc {
     display: block;
-    padding: 0.5em 1em;
+    padding: 10px;
     text-decoration: none;
-    color: black;
+    color: rgb(75, 75, 75);
+    font-size: 14px;
     border-bottom: 1px solid #eee;
 }
 
-.price-dropdown nav a:hover {
-    background-color: #f5f5f5; }
+.asc:hover, .desc:hover {
+    background-color: #f5f5f5;
+}
