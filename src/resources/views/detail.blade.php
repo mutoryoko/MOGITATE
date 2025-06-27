@@ -22,11 +22,9 @@
                 <div class="detail__img--upload">
                     <input type="file" name="image" accept=".png, .jpeg, .jpg, image/png, image/jpg">
                 </div>
-                @if($errors->any())
-                    @foreach ($errors->all() as $error)
-                        <p class="error">{{ $error }}</p>
-                    @endforeach
-                @endif
+                @error('image')
+                    <p class="error">{{ $message }}</p>
+                @enderror
             </div>
             <div class="detail__name-price-season">
                 <div class="detail__name">
@@ -42,11 +40,9 @@
                     <label><div>値段</div>
                         <input type="text" name="price" value="{{ old('price', $product->price) }}">
                     </label>
-                    @if($errors->any())
-                        @foreach ($errors->all() as $error)
-                            <p class="error">{{ $error }}</p>
-                        @endforeach
-                    @endif
+                    @error('price')
+                        <p class="error">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div class="detail___seasons">
                     <label><div>季節</div>
@@ -68,11 +64,9 @@
                 <label><div>商品詳細</div>
                     <textarea class="detail__description--text" name="description">{{ $product->description }}</textarea>
                 </label>
-                @if($errors->any())
-                    @foreach ($errors->all() as $error)
-                        <p class="error">{{ $error }}</p>
-                    @endforeach
-                @endif
+                @error('description')
+                    <p class="error">{{ $message }}</p>
+                @enderror
             </div>
             <div class="back-update__buttons">
                 <a class="back__btn" href="{{ route('products') }}">戻る</a>

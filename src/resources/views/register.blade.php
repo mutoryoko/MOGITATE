@@ -22,28 +22,24 @@
             <label><div class="form-label">値段<span class="required-mark">必須</span></div>
                 <input class="register-form__input" type="text" name="price" value="{{ old('price') }}" placeholder="値段を入力">
             </label>
-            @if($errors->has('price'))
-                @foreach ($errors as $error)
-                    <p class="error">{{ $error }}</p>
-                @endforeach
-            @endif
+            @error('price')
+                <p class="error">{{ $message }}</p>
+            @enderror
         </div>
         <div class="register-form__item">
             <label><div class="form-label">商品画像<span class="required-mark">必須</span></div>
                 <img src="" alt="">
-                <input type="file" name="image" value="" accept=".png, .jpeg, .jpg, image/png, image/jpg">
+                <input type="file" name="image" value="{{ old('image') }}" accept=".png, .jpeg, .jpg, .image/png, .image/jpg">
             </label>
-            @if($errors->any('image'))
-                @foreach ($errors as $error)
-                    <p class="error">{{ $error }}</p>
-                @endforeach
-            @endif
+            @error('image')
+                <p class="error">{{ $message }}</p>
+            @enderror
         </div>
         <div class="register-form__item">
             <label><div class="form-label">季節<span class="required-mark">必須</span><span class="multiple">複数選択可</span></div>
             @foreach ($seasons as $season)
-                <input type="checkbox" id="{{ $season->id }}" name="seasons[]" value="{{ $season->id }}">
-                <label class="season__label" for="{{ $season->id }}">{{ $season->name }}</label>
+                <input type="checkbox" id="season_{{ $season->id }}" name="seasons[]" value="{{ $season->id }}" {{ is_array(old('seasons')) && in_array($season->id, old('seasons')) ? 'checked' : ''}}>
+                <label class="season__label" for="season_{{ $season->id }}">{{ $season->name }}</label>
             @endforeach
             @error('seasons')
                 <p class="error">{{ $message }}</p>
@@ -53,11 +49,9 @@
             <label><div class="form-label">商品説明<span class="required-mark">必須</span></div>
                 <textarea class="register-form__text" name="description" placeholder="商品の説明を入力">{{ old('description') }}</textarea>
             </label>
-            @if($errors->has('description'))
-                @foreach ($errors as $error)
-                    <p class="error">{{ $error }}</p>
-                @endforeach
-            @endif
+            @error('description')
+                <p class="error">{{ $message }}</p>
+            @enderror
         </div>
         <div class="register-form__buttons">
             <a class="back-btn" href="{{ route('products') }}">戻る</a>

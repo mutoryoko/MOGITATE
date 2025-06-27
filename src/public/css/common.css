@@ -11,3 +11,8 @@
 .header__logo {
     color: #F5C800;
 }
+
+.error {
+    font-size: 14px;
+    color: red;
+}
