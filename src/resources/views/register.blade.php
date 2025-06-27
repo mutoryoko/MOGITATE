@@ -28,8 +28,7 @@
         </div>
         <div class="register-form__item">
             <label><div class="form-label">商品画像<span class="required-mark">必須</span></div>
-                <img src="" alt="">
-                <input type="file" name="image" value="{{ old('image') }}" accept=".png, .jpeg, .jpg, .image/png, .image/jpg">
+                @livewire('image-preview')
             </label>
             @error('image')
                 <p class="error">{{ $message }}</p>
