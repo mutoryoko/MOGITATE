@@ -20,7 +20,12 @@
                 </div>
                 {{-- アップロードボタン --}}
                 <div class="detail__img--upload">
-                    <input type="file" name="image" accept=".png, .jpeg, .jpg, image/png, image/jpg">
+                    {{-- <input type="file" name="image" accept=".png, .jpeg, .jpg, image/png, image/jpg"> --}}
+                    <label class="file-upload__btn">
+                        ファイルを選択
+                        <input type="file" name="image" accept=".png, .jpeg, .jpg, image/png, image/jpg" style="display:none;">
+                    </label>
+                    <p class="file__name">{{ $product->image }}</p>
                 </div>
                 @error('image')
                     <p class="error">{{ $message }}</p>
@@ -62,7 +67,7 @@
         <div class="detail__content--lower">
             <div class="detail__description">
                 <label><div>商品詳細</div>
-                    <textarea class="detail__description--text" name="description">{{ $product->description }}</textarea>
+                    <textarea class="detail__description--text" name="description">{{ old('description', $product->description) }}</textarea>
                 </label>
                 @error('description')
                     <p class="error">{{ $message }}</p>

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductFormRequest;
-use App\Http\Requests\UpdateRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Product;
@@ -65,13 +64,13 @@ class ProductController extends Controller
     }
 
     // 更新処理
-    public function update(UpdateRequest $request, string $id)
+    public function update(ProductFormRequest $request, string $id)
     {
         $product = Product::findOrFail($id);
         $updateData = $request->validated();
 
         //画像変更する場合
-        if($request->has('image')) {
+        if($request->hasFile('image')) {
             // 変更前の画像削除、新しい画像の登録
             Storage::disk('public')->delete($product->image);
             $updateData['image'] = $request->file('image')->store('fruits-img', 'public');

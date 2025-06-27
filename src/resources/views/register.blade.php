@@ -27,9 +27,8 @@
             @enderror
         </div>
         <div class="register-form__item">
-            <label><div class="form-label">商品画像<span class="required-mark">必須</span></div>
-                @livewire('image-preview')
-            </label>
+            <label for="image"><div class="form-label">商品画像<span class="required-mark">必須</span></div></label>
+            @livewire('image-preview')
             @error('image')
                 <p class="error">{{ $message }}</p>
             @enderror
