@@ -8,8 +8,8 @@
 
 @section('content')
 <div class="detail__content">
-    <p>商品一覧 > 商品名</p>
-    <form action="{{ route('update', ['productId' => $product->id])}}" method="post">
+    <p class="breadcrumbs"><a class="breadcrumbs-link" href="{{ route('products') }}">商品一覧</a><span class="angle-bracket">&gt;</span>商品名</p>
+    <form action="{{ route('update', ['productId' => $product->id])}}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
         <div class="detail__content--upper">
@@ -20,12 +20,11 @@
                 </div>
                 {{-- アップロードボタン --}}
                 <div class="detail__img--upload">
-                    {{-- <input type="file" name="image" accept=".png, .jpeg, .jpg, image/png, image/jpg"> --}}
                     <label class="file-upload__btn">
                         ファイルを選択
                         <input type="file" name="image" accept=".png, .jpeg, .jpg, image/png, image/jpg" style="display:none;">
                     </label>
-                    <p class="file__name">{{ $product->image }}</p>
+                    <p class="file__name">{{ $fileName }}</p>
                 </div>
                 @error('image')
                     <p class="error">{{ $message }}</p>

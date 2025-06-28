@@ -1,6 +1,12 @@
 .register__content {
     width: 760px;
-    margin: 20px auto;
+    padding: 70px 40px;
+    margin: 0 auto;
+}
+
+.subtitle {
+    color: #4b4b4b;
+    font-size: 32px;
 }
 
 .register-form__item {
@@ -9,6 +15,7 @@
 }
 
 .form-label {
+    color: #4b4b4b;
     margin-bottom: 10px;
 }
 
@@ -20,18 +27,36 @@
     margin-left: 10px;
 }
 
+.file-upload__btn {
+    min-width: 140px;
+    text-align: center;
+    background-color: #E0DFDE;
+    color: #4b4b4b;
+    font-size: 14px;
+    border: 1px solid #4b4b4b;
+    padding: 5px 10px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
 .multiple {
     color: red;
     margin-left: 10px;
 }
 
+/* 商品名・値段入力欄 */
 .register-form__input {
     width: 100%;
     padding: 10px;
+    border: 1px solid rgb(224, 223, 222);
+    border-radius: 5px;
 }
 
+/* 説明入力欄 */
 .register-form__text {
     width: 100%;
     height: 160px;
     padding: 10px 15px;
+    border: 1px solid rgb(224, 223, 222);
+    border-radius: 5px;
 }

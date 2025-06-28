@@ -8,6 +8,7 @@
 
 @section('content')
 <div class="register__content">
+    <h2 class="subtitle">商品登録</h2>
     <form class="register-form" action="{{ route('store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="register-form__item">
@@ -35,10 +36,12 @@
         </div>
         <div class="register-form__item">
             <label><div class="form-label">季節<span class="required-mark">必須</span><span class="multiple">複数選択可</span></div>
-            @foreach ($seasons as $season)
-                <input type="checkbox" id="season_{{ $season->id }}" name="seasons[]" value="{{ $season->id }}" {{ is_array(old('seasons')) && in_array($season->id, old('seasons')) ? 'checked' : ''}}>
-                <label class="season__label" for="season_{{ $season->id }}">{{ $season->name }}</label>
-            @endforeach
+                <div class="season__item">
+                    @foreach ($seasons as $season)
+                        <input type="checkbox" id="season_{{ $season->id }}" name="seasons[]" value="{{ $season->id }}" {{ is_array(old('seasons')) && in_array($season->id, old('seasons')) ? 'checked' : ''}}>
+                        <label class="season__label" for="season_{{ $season->id }}">{{ $season->name }}</label>
+                    @endforeach
+                </div>
             @error('seasons')
                 <p class="error">{{ $message }}</p>
             @enderror

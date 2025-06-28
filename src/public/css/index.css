@@ -41,10 +41,8 @@
 
 .product-cards {
     width: 1100px;
-    margin-right: 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 
 .product-card {
@@ -53,7 +51,6 @@
     background-color: #fff;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    margin-bottom: 20px;
 }
 
 .product-card__img-wrapper {
@@ -88,6 +85,7 @@
     height: 50px;
     border-radius: 25px;
     border: 1px solid rgb(224, 223, 222);
+    color: #4b4b4b;
     padding: 14px 10px;
     margin-bottom: 20px
 }
@@ -100,18 +98,19 @@
 .search-form__btn--submit {
     width: 100%;
     background-color: rgb(245, 200, 0);
-    padding: 10px;
     color: rgb(75, 75, 75);
     border-radius: 5px;
     border: none;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 .search-form__btn--submit:hover {
     background-color: rgb(221, 180, 0);
 }
-
 
 /* ソート */
 
