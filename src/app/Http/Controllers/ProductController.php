@@ -58,12 +58,9 @@ class ProductController extends Controller
     public function show(string $id)
     {
         $product = Product::findOrFail($id);
-        $image = $product->image;
-        $fileName = pathinfo($image, PATHINFO_BASENAME);
-
         $seasons = Season::all();
 
-        return view('detail', compact('product', 'fileName', 'seasons'));
+        return view('detail', compact('product', 'seasons'));
     }
 
     // 更新処理

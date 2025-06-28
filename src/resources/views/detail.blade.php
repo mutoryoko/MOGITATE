@@ -14,18 +14,7 @@
         @method('PATCH')
         <div class="detail__content--upper">
             <div class="detail__img-wrapper">
-                {{-- 商品画像 --}}
-                <div class="detail__img">
-                    <img src="{{ asset('storage/'. $product->image) }}" alt="{{ $product->name }}">
-                </div>
-                {{-- アップロードボタン --}}
-                <div class="detail__img--upload">
-                    <label class="file-upload__btn">
-                        ファイルを選択
-                        <input type="file" name="image" accept=".png, .jpeg, .jpg, image/png, image/jpg" style="display:none;">
-                    </label>
-                    <p class="file__name">{{ $fileName }}</p>
-                </div>
+                @livewire('edit-product-image', ['existingImagePath' => $product->image])
                 @error('image')
                     <p class="error">{{ $message }}</p>
                 @enderror
