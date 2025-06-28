@@ -32,6 +32,7 @@
                     </div>
                 @endforeach
             </div>
+            {{-- ページネーション --}}
             {{ $products->appends(['sort' => request('sort')])->links() }}
         </div>
         {{-- 検索フォーム --}}
@@ -48,10 +49,13 @@
                     <a class="desc" href="?sort=desc">高い順に表示</a>
                 </nav>
             </details>
-                {{-- @if ()
-                    <button></button>
-                @endif --}}
-        </div>
-    </div>
-</div>
+            <label class="sort__btn--label">安い順に表示
+                <a class="sort__btn--reset" href="{{ route('products') }}">✕</a>
+            <label>
+            <label class="sort__btn--label">高い順に表示
+                <a class="sort__btn--reset" href="{{ route('products') }}">✕</a>
+            </label>
+        </label>
+    </label>
+</label>
 @endsection
