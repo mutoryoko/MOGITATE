@@ -1,0 +1,26 @@
+/* ページネーションのカスタマイズ */
+.pagination {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    margin: 40px auto 0;
+}
+
+.page-item {
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.page-item.active {
+    background-color: #F5C800;
+    border-radius: 50%;
+}
+
+.page-link {
+    display:inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    color: #4b4b4b;
+    font-size: 18px;
+}

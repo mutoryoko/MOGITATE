@@ -17,13 +17,13 @@ class ProductController extends Controller
 
         switch ($select) {
             case 'asc':
-                $products = Product::orderBy('price', 'asc')->get();
+                $products = Product::orderBy('price', 'asc')->paginate(6);
                 break;
             case 'desc':
-                $products = Product::orderBy('price', 'desc')->get();
+                $products = Product::orderBy('price', 'desc')->paginate(6);
                 break;
             default:
-                $products = Product::get();
+                $products = Product::paginate(6)->withQueryString();
                 break;
         }
         return view('index', compact('products', 'select'));
@@ -76,6 +76,7 @@ class ProductController extends Controller
             $updateData['image'] = $request->file('image')->store('fruits-img', 'public');
         }
         $product->update($updateData);
+        // 中間テーブルに保存
         $product->seasons()->sync($updateData['seasons']);
 
         return redirect('/products');

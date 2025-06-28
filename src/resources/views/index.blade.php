@@ -2,6 +2,7 @@
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 @endsection
 
 @section('title', '商品一覧')
@@ -31,7 +32,7 @@
                     </div>
                 @endforeach
             </div>
-            {{-- {{ $products->appends(['sort' => request('sort')])->links() }} --}}
+            {{ $products->appends(['sort' => request('sort')])->links() }}
         </div>
         {{-- 検索フォーム --}}
         <div class="search-form">
