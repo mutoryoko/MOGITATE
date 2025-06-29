@@ -11,7 +11,7 @@
 <div class="main__content">
     <div class="content__nav">
         <h2 class="subtitle">
-            @isset($keyword)
+            @isset ($keyword)
                 “{{ $keyword }}”の
             @endisset
             商品一覧
@@ -40,27 +40,36 @@
             {{-- ページネーション --}}
             {{ $products->appends(['sort' => request('sort')])->links() }}
         </div>
-        {{-- 検索フォーム --}}
-        <div class="search-form">
-            <form action="{{ route('search') }}" method="GET">
-                <input class="search-form__keyword" name="keyword" type="text" placeholder="商品名で検索" value="{{ request('keyword') }}">
-                <button class="search-form__btn--submit" type="submit">検索</button>
-            </form>
-            <h3 class="sort__title">価格順で表示</h3>
-            <details class="price-dropdown">
-                <summary class="dropdown__default">価格で並べ替え</summary>
-                <nav class="dropdown-items">
-                    <a class="asc" href="?sort=asc">安い順に表示</a>
-                    <a class="desc" href="?sort=desc">高い順に表示</a>
-                </nav>
-            </details>
-            <label class="sort__btn--label">安い順に表示
-                <a class="sort__btn--reset" href="{{ route('products') }}">✕</a>
-            <label>
-            <label class="sort__btn--label">高い順に表示
-                <a class="sort__btn--reset" href="{{ route('products') }}">✕</a>
-            </label>
-        </label>
-    </label>
-</label>
+
+        <div class="aside">
+            {{-- 検索フォーム --}}
+            <div class="search-form">
+                <form action="{{ route('search') }}" method="GET">
+                    <input class="search-form__keyword" name="keyword" type="text" placeholder="商品名で検索" value="{{ request('keyword') }}">
+                    <button class="search-form__btn--submit" type="submit">検索</button>
+                </form>
+            </div>
+            {{-- ソート --}}
+            <div class="sort-form">
+                <h3 class="sort__title">価格順で表示</h3>
+                <details class="price-dropdown">
+                    <summary class="dropdown__default">価格で並べ替え</summary>
+                    <nav class="dropdown-items">
+                        <a class="asc" href="?sort=asc">安い順に表示</a>
+                        <a class="desc" href="?sort=desc">高い順に表示</a>
+                    </nav>
+                </details>
+                @if ($select === 'asc')
+                    <label class="sort__btn--label">安い順に表示
+                        <a class="sort__btn--reset" href="{{ route('products') }}">✕</a>
+                    <label>
+                @elseif ($select === 'desc')
+                    <label class="sort__btn--label">高い順に表示
+                        <a class="sort__btn--reset" href="{{ route('products') }}">✕</a>
+                    </label>
+                @endif
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
