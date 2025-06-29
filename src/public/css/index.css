@@ -15,7 +15,7 @@
 }
 
 .add-products__btn {
-    color: rgb(75, 75, 75);
+    color: #4b4b4b;
     background-color: rgb(255, 169, 41);
     padding: 10px 15px;
     border-radius: 5px;
@@ -94,7 +94,7 @@
 .search-form__btn--submit {
     width: 100%;
     background-color: rgb(245, 200, 0);
-    color: rgb(75, 75, 75);
+    color: #4b4b4b;
     border-radius: 5px;
     border: none;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);

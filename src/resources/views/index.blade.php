@@ -46,6 +46,7 @@
             <div class="search-form">
                 <form action="{{ route('search') }}" method="GET">
                     <input class="search-form__keyword" name="keyword" type="text" placeholder="商品名で検索" value="{{ request('keyword') }}">
+                    <input type="hidden" name="sort" value="{{ $sort }}">
                     <button class="search-form__btn--submit" type="submit">検索</button>
                 </form>
             </div>
@@ -55,15 +56,15 @@
                 <details class="price-dropdown">
                     <summary class="dropdown__default">価格で並べ替え</summary>
                     <nav class="dropdown-items">
-                        <a class="asc" href="?sort=asc">安い順に表示</a>
-                        <a class="desc" href="?sort=desc">高い順に表示</a>
+                        <a class="asc" href="{{ route('search',['keyword' => request('keyword'), 'sort' => 'asc']) }}">安い順に表示</a>
+                        <a class="desc" href="{{ route('search',['keyword' => request('keyword'), 'sort' => 'desc']) }}">高い順に表示</a>
                     </nav>
                 </details>
-                @if ($select === 'asc')
+                @if ($sort === 'asc')
                     <label class="sort__btn--label">安い順に表示
                         <a class="sort__btn--reset" href="{{ route('products') }}">✕</a>
                     <label>
-                @elseif ($select === 'desc')
+                @elseif ($sort === 'desc')
                     <label class="sort__btn--label">高い順に表示
                         <a class="sort__btn--reset" href="{{ route('products') }}">✕</a>
                     </label>

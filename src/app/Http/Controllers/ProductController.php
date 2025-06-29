@@ -10,26 +10,21 @@ use App\Models\Season;
 
 class ProductController extends Controller
 {
-    // 一覧画面
     public function index(Request $request)
     {
-        $select = $request->sort;
+        $sort = $request->sort;
 
-        switch ($select) {
-            case 'asc':
-                $products = Product::orderBy('price', 'asc')->paginate(6);
-                break;
-            case 'desc':
-                $products = Product::orderBy('price', 'desc')->paginate(6);
-                break;
-            default:
-                $products = Product::paginate(6)->withQueryString();
-                break;
+        if ($sort === 'asc') {
+            $products = Product::orderBy('price', 'asc')->paginate(6);
+        } elseif ($sort === 'desc') {
+            $products = Product::orderBy('price', 'desc')->paginate(6);
+        } else {
+            $products = Product::paginate(6)->withQueryString();
         }
-        return view('index', compact('products', 'select'));
+
+        return view('index', compact('products', 'sort'));
     }
 
-    // 登録画面
     public function register()
     {
         $seasons = Season::all();
@@ -37,7 +32,6 @@ class ProductController extends Controller
         return view('register', compact('seasons'));
     }
 
-    // 登録処理
     public function store(ProductFormRequest $request)
     {
         $validated = $request->validated();
@@ -54,7 +48,6 @@ class ProductController extends Controller
         return redirect('/products');
     }
 
-    // 詳細画面
     public function show(string $id)
     {
         $product = Product::findOrFail($id);
@@ -63,31 +56,26 @@ class ProductController extends Controller
         return view('detail', compact('product', 'seasons'));
     }
 
-    // 更新処理
     public function update(ProductFormRequest $request, string $id)
     {
         $product = Product::findOrFail($id);
         $updateData = $request->validated();
 
-        //画像変更する場合
         if($request->hasFile('image')) {
-            // 変更前の画像削除、新しい画像の登録
             Storage::disk('public')->delete($product->image);
             $updateData['image'] = $request->file('image')->store('fruits-img', 'public');
         }
         $product->update($updateData);
-        // 中間テーブルに保存
         $product->seasons()->sync($updateData['seasons']);
 
         return redirect('/products');
     }
 
-    // 商品削除処理
     public function destroy(Request $request, string $id)
     {
         $product = Product::findOrFail($id);
         Product::find($request->id)->delete();
-        Storage::disk('public')->delete($product->image); // 画像も削除
+        Storage::disk('public')->delete($product->image);
 
         return redirect('/products');
     }
