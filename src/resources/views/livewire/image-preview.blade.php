@@ -1,6 +1,6 @@
 <div class="image-preview" style="max-width: 370px">
     @if($image)
-        <img src="{{ $image->temporaryUrl() }}" alt="プレビュー" style="max-width: 370px;">
+        <img src="{{ $image->temporaryUrl() }}" alt="プレビュー" style="max-width: 370px; margin-bottom: 10px;">
     @endif
     <div class="file-upload__wrapper">
         <label class="file-upload__btn">

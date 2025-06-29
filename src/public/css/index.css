@@ -16,14 +16,14 @@
 
 .add-products__btn {
     color: #4b4b4b;
-    background-color: rgb(255, 169, 41);
+    background-color: #FFA929;
     padding: 10px 15px;
     border-radius: 5px;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 .add-products__btn:hover {
-    background-color: rgb(223, 148, 37);
+    background-color: #DF9425;
 }
 
 .flex__container {
@@ -36,14 +36,14 @@
 /* 商品カード */
 
 .product-cards {
-    width: 1100px;
+    max-width: 1100px;
     display: flex;
     flex-wrap: wrap;
+    gap: 20px 2%;
 }
 
 .product-card {
-    width: 360px;
-    height: 320px;
+    width: 32%;
     background-color: #fff;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     border-radius: 5px;

@@ -6,6 +6,7 @@
 
 /* パンくず */
 .breadcrumbs {
+    color: #4b4b4b;
     font-size: 14px;
     margin-bottom: 15px;
 }
@@ -22,44 +23,37 @@
 .detail__content--upper {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 30px;
 }
 
-.detail__img-wrapper {
-    width: 380px;
-}
-
-.detail__img {
-    width: 100%;
-    object-fit: cover;
-    margin-bottom: 10px;
-}
-
-.detail__img img {
-    width: 100%;
-    height: 100%;
-}
-
-.detail__img--upload {
-    display: flex;
-}
-
-.file-upload__btn {
-    min-width: 140px;
-    text-align: center;
-    background-color: #E0DFDE;
-    color: #4b4b4b;
-    font-size: 14px;
-    border: 1px solid #4b4b4b;
-    padding: 5px 10px;
-    margin-right: 15px;
-    cursor: pointer;
+.file-upload__wrapper {
+    height: 30px;
 }
 
 .file__name {
     font-size: 12px;
     color: #4b4b4b;
+    margin-left: 5px;
 }
 
+.detail__name-price-season {
+    width: 100%;
+    margin-left: 30px;
+}
+
+.detail__item:not(:last-of-type) {
+    margin-bottom: 30px;
+}
+
+.detail__input {
+    width: 100%;
+    padding: 10px;
+    color: #4b4b4b;
+    border: 1px solid rgb(224, 223, 222);
+    border-radius: 5px;
+}
+
+/* 商品詳細の入力欄 */
 .detail__description {
     margin: 30px 0;
 }
@@ -68,4 +62,20 @@
     padding: 10px 15px;
     width: 100%;
     height: 160px;
+}
+
+/* 削除ボタン */
+
+.delete__form {
+    width: 20px;
+    text-align: right;
+    margin: 0 20px 0 auto;
+    transform: translateY(-40px);
+}
+
+.delete-btn--icon {
+    border: none;
+    color: red;
+    font-size: 20px;
+    cursor: pointer;
 }

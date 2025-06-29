@@ -16,6 +16,10 @@
     border-radius: 50%;
 }
 
+.page-item.active > .page-link {
+    color: #fff;
+}
+
 .page-link {
     display:inline-block;
     width: 30px;
