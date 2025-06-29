@@ -38,7 +38,7 @@
             <label><div class="form-label">季節<span class="required-mark">必須</span><span class="multiple">複数選択可</span></div>
                 <div class="season__item">
                     @foreach ($seasons as $season)
-                        <input type="checkbox" id="season_{{ $season->id }}" name="seasons[]" value="{{ $season->id }}" {{ is_array(old('seasons')) && in_array($season->id, old('seasons')) ? 'checked' : ''}}>
+                        <input class="season__checkbox" type="checkbox" id="season_{{ $season->id }}" name="seasons[]" value="{{ $season->id }}" {{ is_array(old('seasons')) && in_array($season->id, old('seasons')) ? 'checked' : ''}}>
                         <label class="season__label" for="season_{{ $season->id }}">{{ $season->name }}</label>
                     @endforeach
                 </div>
