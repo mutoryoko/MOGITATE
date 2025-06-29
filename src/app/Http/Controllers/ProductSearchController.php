@@ -18,6 +18,6 @@ class ProductSearchController extends Controller
 
         $products = $products->paginate(6)->appends($request->except('page'));
 
-        return view('index', compact('products'));
+        return view('index', compact('products', 'keyword'));
     }
 }

@@ -10,7 +10,12 @@
 @section('content')
 <div class="main__content">
     <div class="content__nav">
-        <h2 class="subtitle">商品一覧</h2>
+        <h2 class="subtitle">
+            @isset($keyword)
+                “{{ $keyword }}”の
+            @endisset
+            商品一覧
+        </h2>
         <a class="add-products__btn" href="{{ route('register') }}">+ 商品を追加</a>
     </div>
 
