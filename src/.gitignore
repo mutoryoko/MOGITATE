@@ -15,7 +15,7 @@ yarn-error.log
 /.vscode
 .DS_Store
 Thumbs.db
-.pem
+*.pem
 *.key
 .pub
 id_rsa
