@@ -98,6 +98,7 @@ body {
     color: #4b4b4b;
     border: 1px solid rgb(224, 223, 222);
     border-radius: 5px;
+    resize: none;
 }
 
 .form__text::placeholder {
