@@ -53,7 +53,7 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $seasons = Season::all();
 
-        return view('detail', compact('product', 'seasons'));
+        return view('edit', compact('product', 'seasons'));
     }
 
     public function update(ProductFormRequest $request, string $id)

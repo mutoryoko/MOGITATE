@@ -11,13 +11,11 @@ class Product extends Model
 
     protected $fillable = ['name', 'price', 'image', 'description'];
 
-    // リレーション定義
     public function seasons()
     {
         return $this->belongsToMany(Season::class)->withTimestamps();
     }
 
-    // 検索機能
     public function scopeKeywordSearch($query, $keyword)
     {
         if (!empty($keyword)) {
