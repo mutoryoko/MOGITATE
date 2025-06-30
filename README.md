@@ -1,8 +1,8 @@
-# mogitate - check-test2
+# mogitate - CheckTest2
 
 ### Dockerビルド
   ```
-  git clone 【URL】
+  git clone git@github.com:mutoryoko/mogitate.git
   docker compose up -d --build
   ```
 
@@ -14,8 +14,8 @@
  .env.exampleファイルからenvファイルを作成し、環境変数を変更
   ```
   php artisan key:generate
-  php artisan migrate 
-  php artisan db:seed 
+  php artisan migrate
+  php artisan db:seed
   ```
 
 ## 使用技術
@@ -25,8 +25,8 @@
 	<li>mysql: 8.0.26</li>
 </ul>
 
-## ユースケース図・ER図
-![](URL)
+## ER図
+![image](mogitate-er.drawio.svg)
 
 ## URL
 <ul>
