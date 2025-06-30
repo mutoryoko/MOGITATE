@@ -11,6 +11,10 @@
     border-radius: 50%;
 }
 
+.page-item:hover {
+    background-color: #E0DFDE;
+}
+
 .page-item.active {
     background-color: #F5C800;
     border-radius: 50%;
