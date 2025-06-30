@@ -1,7 +1,5 @@
 mysql/data/*
-!mysql/data/.gitkeep
 /storage/app/livewire-tmp/*
-!/storage/app/livewire-tmp/.gitkeep
 
 /node_modules
 /public/hot
