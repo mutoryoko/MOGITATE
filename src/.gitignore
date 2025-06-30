@@ -1,5 +1,8 @@
-mysql/data/*
+docker/mysql/data/*
+!docker/mysql/data/.gitkeep
+
 /storage/app/livewire-tmp/*
+!/storage/app/livewire-tmp/.gitkeep
 
 /node_modules
 /public/hot
@@ -9,6 +12,7 @@ mysql/data/*
 /vendor
 .env
 .env.backup
+
 .phpunit.result.cache
 
 docker-compose.override.yml
