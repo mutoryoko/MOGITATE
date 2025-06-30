@@ -54,11 +54,23 @@
             <div class="sort-form">
                 <h3 class="sort__title">価格順で表示</h3>
                 <details class="price-dropdown">
-                    <summary class="dropdown__default">価格で並べ替え</summary>
-                    <nav class="dropdown-items">
-                        <a class="asc" href="{{ route('search',['keyword' => request('keyword'), 'sort' => 'asc']) }}">安い順に表示</a>
-                        <a class="desc" href="{{ route('search',['keyword' => request('keyword'), 'sort' => 'desc']) }}">高い順に表示</a>
-                    </nav>
+                    @if ($sort === 'asc')
+                        <summary class="dropdown__label selected-asc">安い順に表示</summary>
+                        <nav class="dropdown-items">
+                            <a class="dropdown--desc" href="{{ route('search',['keyword' => request('keyword'), 'sort' => 'desc']) }}">高い順に表示</a>
+                        </nav>
+                    @elseif ($sort === 'desc')
+                        <summary class="dropdown__label selected-desc">高い順に表示</summary>
+                        <nav class="dropdown-items">
+                            <a class="dropdown--asc" href="{{ route('search',['keyword' => request('keyword'), 'sort' => 'asc']) }}">安い順に表示</a>
+                        </nav>
+                    @elseif ($sort == null)
+                        <summary class="dropdown__label">価格で並べ替え</summary>
+                        <nav class="dropdown-items">
+                            <a class="dropdown--asc" href="{{ route('search',['keyword' => request('keyword'), 'sort' => 'asc']) }}">安い順に表示</a>
+                            <a class="dropdown--desc" href="{{ route('search',['keyword' => request('keyword'), 'sort' => 'desc']) }}">高い順に表示</a>
+                        </nav>
+                    @endif
                 </details>
                 @if ($sort === 'asc')
                     <label class="sort__btn--label">安い順に表示
