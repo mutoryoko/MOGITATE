@@ -39,14 +39,15 @@
                     @enderror
                 </div>
                 <div class="detail___item">
-                    <label><div class="form__label">季節</div>
-                            @foreach ($seasons as $season)
-                                <input class="season__checkbox" type="checkbox" id="{{ $season->id }}" name="seasons[]" value="{{ $season->id }}"
+                    <div class="form__label">季節</div>
+                        @foreach ($seasons as $season)
+                            <div class="season__select">
+                                <input class="checkbox" type="checkbox" id="{{ $season->id }}" name="seasons[]" value="{{ $season->id }}"
                                 @if (in_array( $season->id, old('seasons', $product->seasons->pluck('id')->all())))
                                 checked @endif>
                                 <label class="season__label" for="{{ $season->id }}">{{ $season->name }}</label>
-                            @endforeach
-                    </label>
+                            </div>
+                        @endforeach
                     @error('seasons')
                         <p class="error">{{ $message }}</p>
                     @enderror

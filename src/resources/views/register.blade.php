@@ -35,10 +35,14 @@
             @enderror
         </div>
         <div class="register-form__item">
-            <label><div class="form__label">季節<span class="required-mark">必須</span><span class="multiple">複数選択可</span></div>
+            <div class="form__label">季節<span class="required-mark">必須</span><span class="multiple">複数選択可</span></div>
                 @foreach ($seasons as $season)
-                    <input class="season__checkbox" type="checkbox" id="season_{{ $season->id }}" name="seasons[]" value="{{ $season->id }}" {{ is_array(old('seasons')) && in_array($season->id, old('seasons')) ? 'checked' : ''}}>
-                    <label class="season__label" for="season_{{ $season->id }}">{{ $season->name }}</label>
+                    <div class="season__select">
+                        <input class="checkbox" type="checkbox" id="season_{{ $season->id }}" name="seasons[]" value="{{ $season->id }}" {{ is_array(old('seasons')) && in_array($season->id, old('seasons')) ? 'checked' : ''}}>
+                        <label class="season__label" for="season_{{ $season->id }}">
+                            {{ $season->name }}
+                        </label>
+                    </div>
                 @endforeach
             @error('seasons')
                 <p class="error">{{ $message }}</p>

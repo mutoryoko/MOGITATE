@@ -107,19 +107,25 @@ body {
 }
 
 /* 季節選択欄 */
-.season__checkbox {
+.season__select {
+    display: inline-block;
+}
+
+.season__select:not(:last-of-type) {
+    margin-right: 50px;
+}
+
+.checkbox {
     width: 20px;
     height: 20px;
     margin-right: 5px;
     vertical-align: sub;
+    cursor: pointer;
 }
 
 .season__label {
     color: #4b4b4b;
-}
-
-.season__label:not(:last-of-type) {
-    margin-right: 50px;
+    cursor: pointer;
 }
 
 /* 画像アップロードボタン */
