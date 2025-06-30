@@ -30,6 +30,6 @@
 
 ## URL
 <ul>
-	<li>開発環境: <a href="http://localhost/">http://localhost/</a> </li>
+	<li>開発環境: <a href="http://localhost/products">http://localhost/products</a> </li>
 	<li>phpmyadmin: <a href="http://localhost:8080">http://localhost:8080/</a> </li>
 </ul>
